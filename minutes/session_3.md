@@ -13,14 +13,14 @@
 * Consider SPUD, though just being a prototype so far… 
 
 #### Humberto La Roche
-* The radio environment is extremely complex. TCP is a very difficult protocol to be used there. They are living in different realities
-* Middleboxes are not going to work well when encryption becomes commonplace, but there is an entity who knows everything in a mobile network: the base station. Information from the base station can be of high value for any other entity in the communication path. Middleboxes will be necessary in the mobile networks, at least as a boundary between the two worlds. They are not necessary a good or bad thing
+* The radio environment is extremely complex. TCP is a very difficult protocol to be used in the radio environment. TCP and the radio are living in different realities
+* Middleboxes are not going to work well when encryption becomes commonplace, but there is a set of entities who are supposed to be designed to know as much as possible about everything in a mobile network: the base stations. Information from the base station can be of high value for any other entity in the communication path. Middleboxes will be necessary in the mobile networks, at least as a boundary between the two worlds. They are not necessarily a good or bad thing and could consume state information from the base stations (such as congestion state)
 * There are clear use cases for collaborative frameworks between content providers and mobile operators
 * Enhanced content distribution (with costs shared by both parties)
 * The case of header enrichment
 * Objections among the audience to this particular case, associated with enrichment being a super-cookie
-* Parental control
-* Throughput guidance is a great idea
+* Parental controls
+* Throughput guidance is a great idea and could be used to equip a middlebox with information it needs to improve the user experience.
 
 #### Andreas Terzis
 * Throughput guidance is part of a bigger effort about the network sharing information with the end points
@@ -49,22 +49,22 @@
     *    We are trying to find a way of information sharing that is collaborative, and to identify who needs the information to change its behavior
     *    Certain information can reveal very much about the user and/or the network to the providers
 * __Andreas Terzis:__ The application can provide back to the network information on QoE
-* __Humberto La Rouche:__ There is somebody in the network very much aware of everything: the base station. Whatever the answer we come up with, the base station is going to have a key role
+* __Humberto La Roche:__ There is somebody in the network very much aware of everything: the base station. Whatever the answer we come up with, the base station is going to have a key role
 * __Tom Anderson:__ Fixing TCP may not be the answer to a broken TCP. What we may need to do is talking about a different Internet: SPUD, and especially ICN could have the solution
 * __Joe Hildebrand:__ This one of the reasons why the IAB is here, as it has to continuously think of the Internet architecture and its evolution
 * __Patrick McManus:__ There is hope in the TCP front. There are up-the-stacks solutions like blind caches. We don’t need to reinvent the wheel
 * __Dirk Kutscher:__
     *    We should not specialize this too much on the base station. There are many potential problem points in the network
     *    There are many things to optimize, at different layers, and we’d need to have a more holistic view
-* __Humberto La Rouche:__ Could be interesting to have a hop-by-hop throughput guidance
+* __Humberto La Roche:__ Could be interesting to have a hop-by-hop throughput guidance
 * __NAME__: Anything that exposes the network condition can expose competitive information
-* __Humberto La Rouche:__ Make sure you do it in a way that can help TCO to evolve
+* __Humberto La Roche:__ Make sure you do it in a way that can help TCO to evolve
 * __Andreas Terzis:__ Endpoints can measure the performance of the network anyway
 * __Joe Hildebrand:__ All have something to gain in this game
 * __Jana Iyengar:__
     *    TCP is based on a very specific network model and that’s the cause for the problems it suffers under other conditions. We need new abstractions for making transport protocol evolve
     *    I like throughput guidance because it provides hints to be used by the new control abstractions
-* __Humberto La Rouche:__ You say you can characterize the radio environment so you can derive a congestion control that fits it. I disagree. The radio environment is impossible to characterize because is too complex in that respect
+* __Humberto La Roche:__ You say you can characterize the radio environment so you can derive a congestion control that fits it. I disagree. The radio environment is impossible to characterize because is too complex in that respect
 * __Jana Iyengar:__ It is not about characterizing every possible variation, only the essential properties over the appropriate timescales
 * __Andreas Terzis:__ TG is not a magic bullet. It is up to the endpoints to react
 * __Patrick McManus:__ The core point is whether we can build a controller that can adapt to a radio environment and provide a better experience, and preserve E2E
@@ -89,12 +89,12 @@
 * __Salvatore Loreto:__
     *    TG has shown that collaboration between network and content provider requires a strong trust framework
     *    I am not as pessimistic as Humberto about characterizing radio networks, as many of the problems comes from different approaches to design and implement them. Higher uniformity would bring an easier characterization
-* __Humberto La Rouche:__ A general congestion control applicable to mange the whole path would be impractical
+* __Humberto La Roche:__ A generic congestion control applicable to manage the whole suite of network conditions would be impractical. Experience has shown there are too many knobs to adjust.
 * __Stephen Farrell:__
     *    Sending information from the network to the app must be done with a sense of privacy. We need to very conservative in that respect
     *    The baseline here should be to avoid anything that can be considered a personal identifier. Common practice is to share data that can be used as such
     *    The major challenge we have is to identify the best practices with respect to privacy
-* __Humberto La Rouche:__ We indeed need to document where we want to be in the industry in this respect, because those data are being required
+* __Humberto La Roche:__ We indeed need to document where we want to be in the industry in this respect, because those data are being required
 * __Patrick McManus:__ Common practices are not necessarily requirements
 * __Joe Hildebrand:__ One of the reasons for content providers to like encryption is to avoid in-network modifications that translate into customer complaints
 * __NAME (Huawei):__
@@ -103,5 +103,5 @@
 * __Wendy Seltzer:__ Just to wrap up with respect to privacy. As Patrick said even actions done in good faith by good actors can have undesirable effects
 * __Blake Methany:__
     *    End users has an agreement with endpoints not with intermediaries
-    *    Humberto: Why cannot the consumer have the same agreement with its network provider?
+    *    Humberto: Why can't the consumer have the same agreement with its network provider?
 * __Ted Hardie:__ We have to very careful to design mechanisms that cannot be used for other purposes. to avoid the risk of further ossification 
